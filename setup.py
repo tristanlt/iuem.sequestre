@@ -28,6 +28,10 @@ setup(name='collective.secretskeeper',
           'setuptools',
           'plone.app.dexterity [grok]',
           'plone.namedfile [blobs]',
+          'collective.wtf',
+          'collective.js.jqueryui',
+          'collective.z3cform.datetimewidget',
+          'Products.ATVocabularyManager'
           # -*- Extra requirements: -*-
       ],
       entry_points="""

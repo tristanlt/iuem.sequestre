@@ -9,6 +9,8 @@ from plone.namedfile.field import NamedImage
 from plone.namedfile.field import NamedBlobFile
 #from collective.secretskeeper import _
 
+from collective.z3cform.datetimewidget import DatetimeWidget
+
 from AccessControl import getSecurityManager
 from Products.CMFCore.utils import getToolByName
 
@@ -16,15 +18,11 @@ from Products.CMFCore.utils import getToolByName
 from plone.autoform.interfaces import IFormFieldProvider
 from zope.interface import alsoProvides
 
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
 class ISecret(form.Schema):
     """Un secret a garder
     """
-    #dexteritytextindexer.searchable('description')
-    description = schema.Text(
-            title=(u"Description"),
-            description=(u"Type de secret a garder..."),
-            required=False
-        )
     secrettxt = schema.TextLine(
             title=(u"Secret texte"),
             description=(u"Si le secret est sous forme de texte merci de le placer ici."),
@@ -35,8 +33,8 @@ class ISecret(form.Schema):
             description=(u"Si le secret est sous forme de fichier merci de le placer ici."),
             required=False,
         )
-    datestart = schema.Datetime(
-            title=(u"Date de mise en service"),
+    datestart = schema.Date(
+            title=(u"Date de mise en service du secret"),
             required=False
         )
     datestop = schema.Int(
@@ -46,15 +44,18 @@ class ISecret(form.Schema):
         )
     mailcontact = schema.TextLine(
             title=(u"Contact"),
-            description=(u"Mail de la personne à prévenir"),
+            description=(u"Mail de la personne référente"),
             required=False
         )
     url = schema.TextLine(
             title=(u"URL liée"),
-            description=(u"Un lien vers la fiche d'une machine, d'un service..."),
+            description=(u"Vous pouvez faire pointer cette fiche vers une page web (inventaire, documentation...)"),
             required=False
         )
     
 
 alsoProvides(ISecret, IFormFieldProvider)
 
+class View(grok.View):
+    grok.context(ISecret)
+    grok.require('zope2.View')

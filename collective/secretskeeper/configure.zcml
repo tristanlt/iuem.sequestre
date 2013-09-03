@@ -26,7 +26,7 @@
        in Plone -->
   <genericsetup:registerProfile
       name="default"
-      title="Products that define secrets type to create a secret kee"
+      title="Sequestre"
       directory="profiles/default"
       description="Extension profile for Products that define secrets type to create a secret kee"
       provides="Products.GenericSetup.interfaces.EXTENSION"

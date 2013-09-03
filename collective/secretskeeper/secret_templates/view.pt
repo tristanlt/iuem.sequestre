@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone.app.dexterity">
+
+<head>
+    <title tal:content="template/title">The title</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+</head>
+
+<body>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+	<div style="width: 100%; ">
+		
+<div id="accordion">
+<h3>Informations</h3>
+<div>
+	<span tal:condition="here/datestart">
+		<h4> Date de mise en place </h4>
+		<span tal:content="here/datestart"> </span>
+
+		<h4> Dur&eacute;e de validit&eacute; (en mois) </h4>
+		<span tal:condition="here/datestop">
+			<span tal:content="here/datestop">We are here !</span> mois
+		</span>
+	</span>
+	
+	<span tal:condition="here/url">
+	<h4> URL relative a ce secret </h4>
+	     <a tal:attributes="href here/url" tal:content="here/url">We are here !</a>
+	</span>
+	
+	<h4> Mail contact </h4>
+	<span tal:condition="here/mailcontact">
+		     <a tal:attributes="href string: mailto:${here/mailcontact}" tal:content="here/mailcontact">We are here !</a>
+	</span>
+</div>
+
+<h3 tal:condition="here/secrettxt">Secret</h3>
+<div>
+	<center> <b tal:content="here/secrettxt">We are here !</b> </center>
+</div>
+
+<h3>Fichier</h3>
+<div>
+	<span tal:condition="here/secretfile">
+		     <a tal:attributes="href string:${context/absolute_url}/@@download/secretfile/${context/secretfile/filename}" tal:content="here/secretfile/filename">We are here !</a>
+	</span>
+</div>
+</div>
+	
+	
+	
+	</div>
+  </metal:content-core>
+<script>
+$(function() {
+$( "#accordion" ).accordion();
+});
+</script>
+
+</metal:main>
+
+ 
+
+</body>
+</html>

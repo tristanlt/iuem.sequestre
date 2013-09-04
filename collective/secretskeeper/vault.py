@@ -29,6 +29,6 @@ class IVault(form.Schema):
 
 alsoProvides(IVault, IFormFieldProvider)
 
-#class View(grok.View):
-#    grok.context(IVault)
-#    grok.require('zope2.View')
+class View(grok.View):
+    grok.context(IVault)
+    grok.require('zope2.View')

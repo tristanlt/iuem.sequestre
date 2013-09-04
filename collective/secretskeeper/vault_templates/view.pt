@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone.app.dexterity">
+
+<head>
+    <title tal:content="template/title">The title</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+</head>
+
+<body>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+<table id="secrets_list">
+    <thead>
+        <tr>
+            <th>Secrets</th>
+            <th>Contact</th>
+            <th>Date</th>
+            <th>Contact</th>
+        </tr>
+    </thead>
+    <tbody tal:repeat="item container/values">
+        <tr tal:condition="repeat/item">
+          <td><a tal:attributes="href item/getId" tal:content="item/Title" /></td>
+          <td tal:content="item/Description">Description</td>
+          <td tal:content="item/datestart">Datestart</td>
+          <td tal:content="here/mailcontact">Contact</td>
+       </tr>
+    </tbody>
+</table>
+
+</metal:content-core>
+  
+<script>
+$(document).ready(function() {
+  $('#secrets_list').dataTable( {
+      "oLanguage": {
+          "sUrl": "@@collective.js.datatables.translation"
+      }
+  } );
+} );
+</script>
+</metal:main>
+
+ 
+
+</body>
+</html>

@@ -31,7 +31,8 @@ setup(name='collective.secretskeeper',
           'collective.wtf',
           'collective.js.jqueryui',
           'collective.z3cform.datetimewidget',
-          'Products.ATVocabularyManager'
+          'Products.ATVocabularyManager',
+          'collective.js.datatables'
           # -*- Extra requirements: -*-
       ],
       entry_points="""

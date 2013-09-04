@@ -20,17 +20,21 @@
     <thead>
         <tr>
             <th>Secrets</th>
+            <th>Type machine</th>
+            <th>Type secret</th>
             <th>Contact</th>
             <th>Date</th>
             <th>Contact</th>
         </tr>
     </thead>
-    <tbody tal:repeat="item container/values">
-        <tr tal:condition="repeat/item">
+    <tbody>
+        <tr tal:repeat="item container/values">
           <td><a tal:attributes="href item/getId" tal:content="item/Title" /></td>
+          <td tal:content="item/typemachine">Description</td>
+          <td tal:content="item/typesecret">Description</td>
           <td tal:content="item/Description">Description</td>
           <td tal:content="item/datestart">Datestart</td>
-          <td tal:content="here/mailcontact">Contact</td>
+          <td tal:content="item/mailcontact">Contact</td>
        </tr>
     </tbody>
 </table>
@@ -40,10 +44,8 @@
 <script>
 $(document).ready(function() {
   $('#secrets_list').dataTable( {
-      "oLanguage": {
-          "sUrl": "@@collective.js.datatables.translation"
-      }
-  } );
+        "aaSorting": [[ 1, "asc" ]]
+    } );
 } );
 </script>
 </metal:main>

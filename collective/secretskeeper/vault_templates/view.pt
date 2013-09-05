@@ -28,7 +28,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr tal:repeat="item container/values">
+    	<span tal:omit-tag="python: True" tal:repeat="item container/values">
+        <tr  tal:define="item_type item/Type" tal:condition="python: item_type == 'Secret'">
           <td><a tal:attributes="href item/getId" tal:content="item/Title" /></td>
           <td tal:content="item/typemachine">Description</td>
           <td tal:content="item/typesecret">Description</td>
@@ -36,6 +37,7 @@
           <td tal:content="item/datestart">Datestart</td>
           <td tal:content="item/mailcontact">Contact</td>
        </tr>
+       </span>
     </tbody>
 </table>
 

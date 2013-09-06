@@ -7,20 +7,24 @@ from zope.interface import Interface
 from five import grok
 import os, errno
 import pickle
-from collective.secretskeeper.toolcryptdecrypt import cryptfile
+from collective.secretskeeper.toolcryptdecrypt import encrypt_file
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
 
 # Search for templates in the 'templates' directory
 grok.templatedir('templates')
 
 class FullExport(grok.View):
-    """ Render the title and description of item only (example)
+    """ Each Secrets Pickle stored and crypted 
     """
-    
-    # The view is available on every content item type
     grok.context(ISiteRoot)
+    grok.require('zope2.ViewManagementScreens')
     def update(self, term=None):
-        backup_path="/tmp/test/test/bck-sequestre"
+        registry = getUtility(IRegistry)
+        key = registry['collective.secretskeeper.cryptkey']
+        backup_path = registry['collective.secretskeeper.backupdir']
         mkdir_p(backup_path)
+        
         results = self.context.portal_catalog.searchResults(Type = "Vault")
         for vaultBrain in results:
             mkdir_p(backup_path+vaultBrain.getPath())
@@ -40,10 +44,12 @@ class FullExport(grok.View):
                 secretDict['url']=secret.url
                 #print(backup_path+vaultBrain.getPath()+secret.id)
                 #import pdb; pdb.set_trace()
+                
                 output = open(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id, 'wb')
                 pickle.dump(secretDict, output)
                 output.close()
-                cryptfile(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id,"AAAABBBBCCCCDDDD",backup_path+'/'+vaultBrain.getPath()+'/'+secret.id+'crypted')
+                encrypt_file("AAAABCCCCDDDD",backup_path+'/'+vaultBrain.getPath()+'/'+secret.id,backup_path+'/'+vaultBrain.getPath()+'/'+secret.id+'.enc')
+                os.remove(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id)
                 #print(secretBrain.getId,secretBrain.getPath())
                 #import pdb; pdb.set_trace()
 

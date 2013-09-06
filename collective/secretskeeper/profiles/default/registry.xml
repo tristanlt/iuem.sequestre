@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<registry>
+<record name="collective.secretskeeper.cryptkey">
+        <field type="plone.registry.field.TextLine">
+            <title>cryptkey</title>
+        </field>
+        <value>AAAABBBBCCCCDDDD</value>
+</record>
+<record name="collective.secretskeeper.backupdir">
+        <field type="plone.registry.field.TextLine">
+            <title>backupdir</title>
+        </field>
+        <value>/var/secretsbackup</value>
+</record>
+</registry>

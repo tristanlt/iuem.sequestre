@@ -26,6 +26,7 @@ setup(name='collective.secretskeeper',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'five.grok',
           'plone.app.dexterity [grok]',
           'plone.namedfile [blobs]',
           'collective.wtf',

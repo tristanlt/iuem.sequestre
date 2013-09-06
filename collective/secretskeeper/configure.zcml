@@ -32,6 +32,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <include package=".browser" />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

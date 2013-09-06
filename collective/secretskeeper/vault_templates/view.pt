@@ -15,7 +15,7 @@
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
-
+<br /> <br />
 <table id="secrets_list">
     <thead>
         <tr>

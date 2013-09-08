@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_workflow">
+    <bindings>
+        <type type_id="iuem.sequestre.secret">
+            <bound-workflow workflow_id="iuem.sequestre.secret_workflow"/>
+        </type>
+        <type type_id="iuem.sequestre.vault">
+            <bound-workflow workflow_id="iuem.sequestre.vault_workflow"/>
+        </type>
+    </bindings>
+</object>

@@ -8,12 +8,12 @@ from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 from Products.PloneTestCase.layer import onsetup
 
-import collective.secretskeeper
+import iuem.sequestre
 
 OPTION_FLAGS = doctest.NORMALIZE_WHITESPACE | \
                doctest.ELLIPSIS
 
-ptc.setupPloneSite(products=['collective.secretskeeper'])
+ptc.setupPloneSite(products=['iuem.sequestre'])
 
 
 class TestCase(ptc.PloneTestCase):
@@ -23,7 +23,7 @@ class TestCase(ptc.PloneTestCase):
         @classmethod
         def setUp(cls):
             zcml.load_config('configure.zcml',
-              collective.secretskeeper)
+              iuem.sequestre)
 
         @classmethod
         def tearDown(cls):
@@ -35,18 +35,18 @@ def test_suite():
 
         # Unit tests
         #doctestunit.DocFileSuite(
-        #    'README.txt', package='collective.secretskeeper',
+        #    'README.txt', package='iuem.sequestre',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
         #doctestunit.DocTestSuite(
-        #    module='collective.secretskeeper.mymodule',
+        #    module='iuem.sequestre.mymodule',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
 
         # Integration tests that use PloneTestCase
         ztc.ZopeDocFileSuite(
             'INTEGRATION.txt',
-            package='collective.secretskeeper',
+            package='iuem.sequestre',
             optionflags = OPTION_FLAGS,
             test_class=TestCase),
 

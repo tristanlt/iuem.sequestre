@@ -8,6 +8,6 @@
   -->
 
 <object name="portal_types">
- <object name="collective.secretskeeper.secret" meta_type="Dexterity FTI" />
- <object name="collective.secretskeeper.vault" meta_type="Dexterity FTI" />
+ <object name="iuem.sequestre.secret" meta_type="Dexterity FTI" />
+ <object name="iuem.sequestre.vault" meta_type="Dexterity FTI" />
 </object>

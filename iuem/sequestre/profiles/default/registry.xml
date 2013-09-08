@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <registry>
-<record name="collective.secretskeeper.cryptkey">
+<record name="iuem.sequestre.cryptkey">
         <field type="plone.registry.field.TextLine">
             <title>cryptkey</title>
         </field>
         <value>AAAABBBBCCCCDDDD</value>
 </record>
-<record name="collective.secretskeeper.backupdir">
+<record name="iuem.sequestre.backupdir">
         <field type="plone.registry.field.TextLine">
             <title>backupdir</title>
         </field>

@@ -7,7 +7,7 @@ from zope.interface import Interface
 from five import grok
 import os, errno
 import pickle
-from collective.secretskeeper.toolcryptdecrypt import encrypt_file
+from iuem.sequestre.toolcryptdecrypt import encrypt_file
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
@@ -21,8 +21,8 @@ class FullExport(grok.View):
     grok.require('zope2.ViewManagementScreens')
     def update(self, term=None):
         registry = getUtility(IRegistry)
-        key = registry['collective.secretskeeper.cryptkey']
-        backup_path = registry['collective.secretskeeper.backupdir']
+        key = registry['iuem.sequestre.cryptkey']
+        backup_path = registry['iuem.sequestre.backupdir']
         mkdir_p(backup_path)
         
         results = self.context.portal_catalog.searchResults(Type = "Vault")

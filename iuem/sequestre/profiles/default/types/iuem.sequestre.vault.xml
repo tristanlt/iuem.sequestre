@@ -1,21 +1,24 @@
 <?xml version="1.0"?>
-<object name="collective.secretskeeper.secret" meta_type="Dexterity FTI"
-   i18n:domain="collective.secretskeeper" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="iuem.sequestre.vault" meta_type="Dexterity FTI"
+   i18n:domain="iuem.sequestre" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Secret</property>
+ <property name="title" i18n:translate="">Vault</property>
  <property name="description" i18n:translate=""></property>
- <property name="content_icon">++resource++collective.secretskeeper/secret16.png</property>
+ <property name="content_icon">++resource++iuem.sequestre/vault16.png</property>
  <property name="allow_discussion">False</property>
- <property name="global_allow">False</property>
+ <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types" />
+ <property name="allowed_content_types">
+      <element value="iuem.sequestre.secret" />
+      <element value="iuem.sequestre.vault" />
+  </property>
 
  <!-- schema interface -->
- <property name="schema">collective.secretskeeper.secret.ISecret</property>
+ <property name="schema">iuem.sequestre.vault.IVault</property>
 
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Item</property>
+ <property name="klass">plone.dexterity.content.Container</property>
 
  <!-- add permission -->
  <property name="add_permission">cmf.AddPortalContent</property>
@@ -42,12 +45,12 @@
 
  <!-- Actions -->
  
-  <!-- Une vue unique ne necessite pas une action vue
+ <!-- Une vue unique ne necessite pas une action vue
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}" visible="True">
   <permission value="View"/>
  </action>
- -->
+ --> 
  
  <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">

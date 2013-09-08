@@ -3,7 +3,7 @@ import os
 
 version = '1.0'
 
-setup(name='collective.secretskeeper',
+setup(name='iuem.sequestre',
       version=version,
       description="Products that define secrets type to create a secret kee",
       long_description=open("README.txt").read() + "\n" +

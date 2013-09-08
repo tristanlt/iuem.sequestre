@@ -1,16 +1,16 @@
-collective.secretskeeper Installation
+iuem.sequestre Installation
 -------------------------------------
 
-To install collective.secretskeeper using zc.buildout and the plone.recipe.zope2instance
+To install iuem.sequestre using zc.buildout and the plone.recipe.zope2instance
 recipe to manage your project, you can do this:
 
-* Add ``collective.secretskeeper`` to the list of eggs to install, e.g.:
+* Add ``iuem.sequestre`` to the list of eggs to install, e.g.:
 
     [buildout]
     ...
     eggs =
         ...
-        collective.secretskeeper
+        iuem.sequestre
        
 * Re-run buildout, e.g. with:
 

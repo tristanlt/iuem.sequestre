@@ -7,7 +7,7 @@ from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage
 from plone.namedfile.field import NamedBlobFile
-#from collective.secretskeeper import _
+#from iuem.sequestre import _
 
 from AccessControl import getSecurityManager
 from Products.CMFCore.utils import getToolByName

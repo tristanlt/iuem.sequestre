@@ -1,5 +1,5 @@
 [Workflow]
-Id:,collective.secretskeeper.vault_workflow
+Id:,iuem.sequestre.vault_workflow
 Title:,Workflow for vaults
 Description:,Etat unique RW owner
 Initial state:,Private

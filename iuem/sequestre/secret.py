@@ -7,7 +7,7 @@ from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage
 from plone.namedfile.field import NamedBlobFile
-#from collective.secretskeeper import _
+#from iuem.sequestre import _
 
 from collective.z3cform.datetimewidget import DatetimeWidget
 
@@ -36,7 +36,7 @@ class GetTypeMachineVoc(object):
             terms.append(SimpleVocabulary.createTerm(vocabkey,vocab.getVocabularyDict()[vocabkey]))
         return SimpleVocabulary(terms)
 
-grok.global_utility(GetTypeMachineVoc, name=u"collective.secretskeeper.typemachinevoc")
+grok.global_utility(GetTypeMachineVoc, name=u"iuem.sequestre.typemachinevoc")
 
 class GetTypeSecretVoc(object):
     grok.implements(IVocabularyFactory)
@@ -49,7 +49,7 @@ class GetTypeSecretVoc(object):
             terms.append(SimpleVocabulary.createTerm(vocabkey,vocab.getVocabularyDict()[vocabkey]))
         return SimpleVocabulary(terms)
 
-grok.global_utility(GetTypeSecretVoc, name=u"collective.secretskeeper.typesecretvoc")
+grok.global_utility(GetTypeSecretVoc, name=u"iuem.sequestre.typesecretvoc")
 
 
 class ISecret(form.Schema):
@@ -70,13 +70,13 @@ class ISecret(form.Schema):
             title=(u"Type de machine"),
             description=(u""),
             required=False,
-            vocabulary='collective.secretskeeper.typemachinevoc'
+            vocabulary='iuem.sequestre.typemachinevoc'
         )
     typesecret = schema.Choice(
             title=(u"Type de secret"),
             description=(u""),
             required=False,
-            vocabulary='collective.secretskeeper.typesecretvoc'
+            vocabulary='iuem.sequestre.typesecretvoc'
         )
     datestart = schema.Date(
             title=(u"Date de mise en service du secret"),

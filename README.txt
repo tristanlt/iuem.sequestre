@@ -4,8 +4,8 @@ Introduction
 Procedure de backup
 -------------------
 Deux clefs dans le portal_registry :
-collective.secretskeeper.cryptkey
-collective.secretskeeper.backupdir
+iuem.sequestre.cryptkey
+iuem.sequestre.backupdir
 
 Il faut un utilisateur avec les droits zope2.ViewManagementScreens
 

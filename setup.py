@@ -5,7 +5,7 @@ version = '1.0'
 
 setup(name='iuem.sequestre',
       version=version,
-      description="Products that define secrets type to create a secret kee",
+      description="Produit plone destine a creer une webapp de sequestre numerique",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
@@ -16,12 +16,12 @@ setup(name='iuem.sequestre',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='',
-      author='',
-      author_email='',
-      url='http://svn.plone.org/svn/collective/',
+      author='Tristan Le Toullec',
+      author_email='tristan.letoullec@univ-brest.fr',
+      url='http://www-iuem.univ-brest.fr/feiri',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective'],
+      namespace_packages=['iuem'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[

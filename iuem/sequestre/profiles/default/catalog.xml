@@ -1,0 +1,10 @@
+<object name="portal_catalog">
+    <index name="typemachine" meta_type="FieldIndex">
+        <indexed_attr value="typemachine"/>
+    </index>
+    <column value="typemachine"/>
+    <index name="typesecret" meta_type="FieldIndex">
+        <indexed_attr value="typesecret"/>
+    </index>
+    <column value="typesecret"/>
+</object>

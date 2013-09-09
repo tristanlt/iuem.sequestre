@@ -53,7 +53,6 @@ class FullExport(grok.View):
                 #print(secretBrain.getId,secretBrain.getPath())
                 #import pdb; pdb.set_trace()
 
-
 def mkdir_p(path):
     try:
         os.makedirs(path)
@@ -61,3 +60,10 @@ def mkdir_p(path):
         if exc.errno == errno.EEXIST and os.path.isdir(path):
             pass
         else: raise
+
+
+
+#     def update(self, term=None):
+#         vtool = getToolByName(context, 'portal_vocabularies')
+#         voctypemachine=vtool.getVocabularyByName('typemachine')
+#         voctypesecret=vtool.getVocabularyByName('typesecret')

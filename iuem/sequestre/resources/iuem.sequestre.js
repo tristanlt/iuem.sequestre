@@ -26,8 +26,8 @@ if ($('#form-widgets-typesecret').length != 0) {
 		$( ".typesecret-proposed-tag" ).click(function() {
 			$('#form-widgets-typesecret').val($(this).text());
 		});
-	})
+	});
 }
-
-
+$('.contenttype-iuem-sequestre-vault.navTreeCurrentItem > img').attr("src","++resource++iuem.sequestre/vault16-open.png");
+$('.contenttype-iuem-sequestre-vault.navTreeItemInPath > img').attr("src","++resource++iuem.sequestre/vault16-open.png");
 });

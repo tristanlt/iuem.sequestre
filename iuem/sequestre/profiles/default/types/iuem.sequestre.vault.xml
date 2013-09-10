@@ -12,6 +12,7 @@
  <property name="allowed_content_types">
       <element value="iuem.sequestre.secret" />
       <element value="iuem.sequestre.vault" />
+      <element value="Document" />
   </property>
 
  <!-- schema interface -->

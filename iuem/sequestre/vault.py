@@ -29,6 +29,13 @@ class IVault(form.Schema):
 
 alsoProvides(IVault, IFormFieldProvider)
 
+@form.default_value(field=IVault['mailcontact'])
+def default_mail(data):
+    membership = getToolByName(data.context, 'portal_membership')
+    user = getSecurityManager().getUser()
+    leuser=membership.getMemberById(user.getUserName())
+    return leuser.getProperty('email')
+
 class View(grok.View):
     grok.context(IVault)
     grok.require('zope2.View')

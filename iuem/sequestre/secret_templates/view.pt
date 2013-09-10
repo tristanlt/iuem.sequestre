@@ -18,6 +18,12 @@
 
 	<div style="width: 100%; ">
 		
+
+<br />
+<p> Type de machine (ou d'application) : <b tal:content="here/typemachine"></b> </p>
+<p> Type de secret : <b tal:content="here/typesecret"></b> </p>
+<br/>
+
 <div id="accordion">
 <h3>Informations</h3>
 <div>

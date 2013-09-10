@@ -9,7 +9,7 @@
     expression=""
     id="++resource++jquery.datatables.js"
     enabled="True" 
-    inline="False" 
+    inline="True" 
   />
 
  <javascript 
@@ -20,7 +20,7 @@
     expression=""
     id="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"
     enabled="True" 
-    inline="False" 
+    inline="True" 
   />
 
  <javascript 

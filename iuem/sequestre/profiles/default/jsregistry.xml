@@ -9,7 +9,7 @@
     expression=""
     id="++resource++jquery.datatables.js"
     enabled="True" 
-    inline="True" 
+    inline="False" 
   />
 
  <javascript 
@@ -20,7 +20,7 @@
     expression=""
     id="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"
     enabled="True" 
-    inline="True" 
+    inline="False" 
   />
 
  <javascript 
@@ -29,10 +29,8 @@
     conditionalcomment=""
     cookable="True" 
     expression=""
-    id="++resource++jquery.datatables/extras/TableTools/media/js/TableTools.js"
+    id="++resource++iuem.sequestre/iuem.sequestre.js"
     enabled="True" 
-    inline="True" 
   />
-
 
 </object>

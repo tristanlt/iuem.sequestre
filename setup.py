@@ -32,8 +32,7 @@ setup(name='iuem.sequestre',
           'collective.wtf',
           'collective.js.jqueryui',
           'collective.z3cform.datetimewidget',
-          'Products.ATVocabularyManager',
-          'collective.js.datatables'
+          'collective.js.datatables',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

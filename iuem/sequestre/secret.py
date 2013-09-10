@@ -4,7 +4,6 @@ from zope import schema
 
 from plone.directives import form, dexterity
 
-from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage
 from plone.namedfile.field import NamedBlobFile
 #from iuem.sequestre import _
@@ -18,38 +17,18 @@ from Products.CMFCore.utils import getToolByName
 from plone.autoform.interfaces import IFormFieldProvider
 from zope.interface import alsoProvides
 
-from zope.schema.interfaces import IVocabularyFactory
+#from zope.schema.interfaces import IVocabularyFactory
 
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+#from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
-from zope.component import queryUtility
+#from plone.formwidget.autocomplete import AutocompleteFieldWidget
+#from z3c.formwidget.query.interfaces import IQuerySource
+#from zope.schema.interfaces import IContextSourceBinder
+#from zope.component import queryUtility
 
+#from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-class GetTypeMachineVoc(object):
-    grok.implements(IVocabularyFactory)
-    
-    def __call__(self, context):
-        vtool = getToolByName(context, 'portal_vocabularies')
-        vocab=vtool.getVocabularyByName('typemachine')
-        terms=[]
-        for vocabkey in vocab.getVocabularyDict().iterkeys():
-            terms.append(SimpleVocabulary.createTerm(vocabkey,vocab.getVocabularyDict()[vocabkey]))
-        return SimpleVocabulary(terms)
-
-grok.global_utility(GetTypeMachineVoc, name=u"iuem.sequestre.typemachinevoc")
-
-class GetTypeSecretVoc(object):
-    grok.implements(IVocabularyFactory)
-    
-    def __call__(self, context):
-        vtool = getToolByName(context, 'portal_vocabularies')
-        vocab=vtool.getVocabularyByName('typesecret')
-        terms=[]
-        for vocabkey in vocab.getVocabularyDict().iterkeys():
-            terms.append(SimpleVocabulary.createTerm(vocabkey,vocab.getVocabularyDict()[vocabkey]))
-        return SimpleVocabulary(terms)
-
-grok.global_utility(GetTypeSecretVoc, name=u"iuem.sequestre.typesecretvoc")
+#import z3c.form.field
 
 
 class ISecret(form.Schema):
@@ -66,17 +45,15 @@ class ISecret(form.Schema):
             description=(u"Si le secret est sous forme de fichier merci de le placer ici."),
             required=False,
         )
-    typemachine = schema.Choice(
+    typemachine = schema.TextLine(
             title=(u"Type de machine"),
             description=(u""),
             required=False,
-            vocabulary='iuem.sequestre.typemachinevoc'
         )
-    typesecret = schema.Choice(
+    typesecret = schema.TextLine(
             title=(u"Type de secret"),
             description=(u""),
             required=False,
-            vocabulary='iuem.sequestre.typesecretvoc'
         )
     datestart = schema.Date(
             title=(u"Date de mise en service du secret"),
@@ -97,7 +74,6 @@ class ISecret(form.Schema):
             description=(u"Vous pouvez faire pointer cette fiche vers une page web (inventaire, documentation...)"),
             required=False
         )
-    
 
 alsoProvides(ISecret, IFormFieldProvider)
 

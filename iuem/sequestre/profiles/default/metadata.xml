@@ -5,6 +5,5 @@
         <dependency>profile-collective.js.jqueryui:default</dependency>
         <dependency>profile-collective.js.datatables:default</dependency>
         <dependency>profile-collective.z3cform.datetimewidget:default</dependency>
-        <dependency>profile-Products.ATVocabularyManager:default</dependency>
     </dependencies>
 </metadata>

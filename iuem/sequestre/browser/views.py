@@ -61,9 +61,34 @@ def mkdir_p(path):
             pass
         else: raise
 
+class xmlTypeMachine(grok.View):
+    """ Methode pour lire les tags deja utiliser dans les contenus de type secret pour le type machine et presenter cela sous forme de XML pour lecture avec jQuery
+    le code jQuery ira lire le XML et ajoutera des propositions de tag dans l'interface utilisateur
+    """
+    grok.context(Interface)
+    grok.require('zope2.View')
+    
+    def update(self, term=None):
+        #print("nothing")
+        pass
+    
+    def getDatas(self):
+        results=self.context.portal_catalog.uniqueValuesFor("typemachine")
+        #import pdb; pdb.set_trace()
+        return results
 
-
-#     def update(self, term=None):
-#         vtool = getToolByName(context, 'portal_vocabularies')
-#         voctypemachine=vtool.getVocabularyByName('typemachine')
-#         voctypesecret=vtool.getVocabularyByName('typesecret')
+class xmlTypeSecret(grok.View):
+    """ Methode pour lire les tags deja utiliser dans les contenus de type secret pour le type secret et presenter cela sous forme de XML pour lecture avec jQuery
+    le code jQuery ira lire le XML et ajoutera des propositions de tag dans l'interface utilisateur
+    """
+    grok.context(Interface)
+    grok.require('zope2.View')
+    
+    def update(self, term=None):
+        #print("nothing")
+        pass
+    
+    def getDatas(self):
+        results=self.context.portal_catalog.uniqueValuesFor("typesecret")
+        #import pdb; pdb.set_trace()
+        return results

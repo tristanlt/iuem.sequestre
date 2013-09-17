@@ -3,7 +3,7 @@
    i18n:domain="iuem.sequestre" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Vault</property>
+ <property name="title" i18n:translate="">Coffre</property>
  <property name="description" i18n:translate=""></property>
  <property name="content_icon">++resource++iuem.sequestre/vault16.png</property>
  <property name="allow_discussion">False</property>

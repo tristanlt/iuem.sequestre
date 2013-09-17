@@ -16,12 +16,12 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 <br />
-
+<span tal:condition="container/affichesouscoffre">
 <h2>Liste des sous-coffres</h2>
 <span class="documentDescription"> Liste des coffres contenus dans celui-ci, le cas &eacute;ch&eacute;ant... </span>
 <br />
 <div tal:omit-tag="python: True" tal:repeat="item container/values">
-        <span tal:omit-tag="python: True"  tal:define="item_type item/Type" tal:condition="python: item_type == 'Vault'">
+        <span tal:omit-tag="python: True"  tal:define="item_type item/Type" tal:condition="python: item_type == 'Coffre'">
          <img src="++resource++iuem.sequestre/vault16.png">
          <a tal:attributes="href item/getId" >
          <span tal:omit-tag="python: True" tal:content="item/Title" />
@@ -31,7 +31,8 @@
         <br />
 </div>
 <br />
-
+</span>
+<span tal:condition="container/values">
 <h2>Liste des secrets</h2>
 <span class="documentDescription"> Liste des secrets contenus dans celui-ci, le cas &eacute;ch&eacute;ant... </span>
 <br />
@@ -59,7 +60,7 @@
        </span>
     </tbody>
 </table>
-
+</span>
 </metal:content-core>
   
 <script>

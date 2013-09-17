@@ -24,8 +24,8 @@ class FullExport(grok.View):
         key = registry['iuem.sequestre.cryptkey']
         backup_path = registry['iuem.sequestre.backupdir']
         mkdir_p(backup_path)
-        
-        results = self.context.portal_catalog.searchResults(Type = "Vault")
+        print("Sauvegarde du sequetre dans : ",backup_path)
+        results = self.context.portal_catalog.searchResults(Type = "Coffre")
         for vaultBrain in results:
             mkdir_p(backup_path+vaultBrain.getPath())
 
@@ -36,6 +36,7 @@ class FullExport(grok.View):
                 secretDict['id']=secret.id
                 secretDict['description']=secret.description
                 secretDict['secrettxt']=secret.secrettxt
+                secretDict['secretfile']=secret.secretfile                
                 secretDict['typemachine']=secret.typemachine
                 secretDict['typesecret']=secret.typesecret
                 secretDict['datestart']=secret.datestart
@@ -48,7 +49,7 @@ class FullExport(grok.View):
                 output = open(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id, 'wb')
                 pickle.dump(secretDict, output)
                 output.close()
-                encrypt_file("AAAABCCCCDDDD",backup_path+'/'+vaultBrain.getPath()+'/'+secret.id,backup_path+'/'+vaultBrain.getPath()+'/'+secret.id+'.enc')
+                encrypt_file(key,backup_path+'/'+vaultBrain.getPath()+'/'+secret.id,backup_path+'/'+vaultBrain.getPath()+'/'+secret.id+'.enc')
                 os.remove(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id)
                 #print(secretBrain.getId,secretBrain.getPath())
                 #import pdb; pdb.set_trace()

@@ -26,6 +26,12 @@ class IVault(form.Schema):
             description=(u"Mail de la personne référente"),
             required=False
         )
+    affichesouscoffre = schema.Bool(
+            title=(u"Afficher la liste des sous-coffres"),
+            description=(u"Afficher la liste des sous-coffre dans la page de présentation du coffre."),
+            required=True,
+            default= False 
+        )
 
 alsoProvides(IVault, IFormFieldProvider)
 

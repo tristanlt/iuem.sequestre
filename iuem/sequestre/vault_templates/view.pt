@@ -49,7 +49,9 @@
     </thead>
     <tbody>
     	<span tal:omit-tag="python: True" tal:repeat="item container/values">
-        <tr  tal:define="item_type item/Type" tal:condition="python: item_type == 'Secret'">
+        <tr  tal:define="item_type item/Type;
+        wtool here/portal_workflow;
+        item_state python: wtool.getInfoFor(item, 'review_state', '')"  tal:condition="python: item_type == 'Secret' and item_state=='actif'">
           <td><a tal:attributes="href item/getId" tal:content="item/Title" /></td>
           <td tal:content="item/typemachine">Description</td>
           <td tal:content="item/typesecret">Description</td>

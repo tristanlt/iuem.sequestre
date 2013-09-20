@@ -2,16 +2,40 @@
 Id:,iuem.sequestre.vault_workflow
 Title:,Workflow for vaults
 Description:,Etat unique RW owner
-Initial state:,Private
+Initial state:,Actif
 Type:,Workflow
 State variable:,review_state
 
 [State]
-Id:,Private
-Title:,Private
-Description:,"Editable by the owner."
+Id:,Actif
+Title:,Actif
+Description:,Editable by the owner.
 Transitions,
 Permissions,Acquire, Anonymous, Authenticated, Contributor, Editor, Manager, Member, Owner, Reader, Reviewer, Site Administrator
 Access contents information,N,N,N,Y,Y,Y,N,Y,Y,N,Y
 Modify portal content,N,N,N,N,Y,Y,N,Y,N,N,Y
 View,N,N,N,Y,Y,Y,N,Y,Y,N,Y
+Delete objects,N,N,N,N,N,Y,N,N,N,N,Y
+Copy or Move,N,N,N,N,N,N,N,N,N,N,N
+
+[State]
+Id:,Private
+Title:,Private
+Description:,For compat.
+Transitions,setActif
+Permissions,Acquire, Anonymous, Authenticated, Contributor, Editor, Manager, Member, Owner, Reader, Reviewer, Site Administrator
+Access contents information,N,N,N,Y,Y,Y,N,Y,Y,N,Y
+Modify portal content,N,N,N,N,Y,Y,N,Y,N,N,Y
+View,N,N,N,Y,Y,Y,N,Y,Y,N,Y
+Delete objects,N,N,N,N,N,Y,N,N,N,N,Y
+Copy or Move,N,N,N,N,N,N,N,N,N,N,N
+
+[Transition]
+Id:,setActif
+Title:,setActif
+Description:,Passer en actif
+Details:,Passer en actif
+Target state:,Actif
+URL:,%(content_url)s/content_status_modify?workflow_action=setActif
+Trigger:,User
+Guard permission:,Modify portal content

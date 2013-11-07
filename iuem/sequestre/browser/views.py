@@ -35,23 +35,22 @@ class FullExport(grok.View):
                 secretDict={}
                 secretDict['id']=secret.id
                 secretDict['description']=secret.description
-                secretDict['secrettxt']=secret.secrettxt
-                secretDict['secretfile']=secret.secretfile                
+                secretDict['secrettxt']=secret.secrettxt              
                 secretDict['typemachine']=secret.typemachine
                 secretDict['typesecret']=secret.typesecret
                 secretDict['datestart']=secret.datestart
                 secretDict['datestop']=secret.datestop
                 secretDict['mailcontact']=secret.mailcontact
                 secretDict['url']=secret.url
-                #print(backup_path+vaultBrain.getPath()+secret.id)
-                #import pdb; pdb.set_trace()
+                if secret.secretfile:
+                    secretDict['secretfile']=secret.secretfile.data
+                    secretDict['secretfilename']=secret.secretfile.filename
                 
                 output = open(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id, 'wb')
                 pickle.dump(secretDict, output)
                 output.close()
                 encrypt_file(key,backup_path+'/'+vaultBrain.getPath()+'/'+secret.id,backup_path+'/'+vaultBrain.getPath()+'/'+secret.id+'.enc')
                 os.remove(backup_path+'/'+vaultBrain.getPath()+'/'+secret.id)
-                #print(secretBrain.getId,secretBrain.getPath())
                 #import pdb; pdb.set_trace()
 
 def mkdir_p(path):

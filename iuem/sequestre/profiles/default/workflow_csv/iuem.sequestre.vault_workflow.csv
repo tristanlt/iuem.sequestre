@@ -15,7 +15,7 @@ Permissions,Acquire, Anonymous, Authenticated, Contributor, Editor, Manager, Mem
 Access contents information,N,N,N,Y,Y,Y,N,Y,Y,N,Y
 Modify portal content,N,N,N,N,Y,Y,N,Y,N,N,Y
 View,N,N,N,Y,Y,Y,N,Y,Y,N,Y
-Delete objects,N,N,N,N,N,Y,N,N,N,N,Y
+Delete objects,N,N,N,N,N,N,N,N,N,N,N
 Copy or Move,N,N,N,N,N,N,N,N,N,N,N
 
 [State]
@@ -25,9 +25,9 @@ Description:,For compat.
 Transitions,setActif
 Permissions,Acquire, Anonymous, Authenticated, Contributor, Editor, Manager, Member, Owner, Reader, Reviewer, Site Administrator
 Access contents information,N,N,N,Y,Y,Y,N,Y,Y,N,Y
-Modify portal content,N,N,N,N,Y,Y,N,Y,N,N,Y
+Modify portal content,N,N,N,N,Y,Y,N,Y,N,N,N
 View,N,N,N,Y,Y,Y,N,Y,Y,N,Y
-Delete objects,N,N,N,N,N,Y,N,N,N,N,Y
+Delete objects,N,N,N,N,N,N,N,N,N,N,N
 Copy or Move,N,N,N,N,N,N,N,N,N,N,N
 
 [Transition]

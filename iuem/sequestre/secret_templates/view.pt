@@ -48,9 +48,9 @@
 	</span>
 </div>
 
-<h3 tal:condition="here/secrettxt">Secret</h3>
+<h3>Secret</h3>
 <div>
-	<center> <b tal:content="here/secrettxt">We are here !</b> </center>
+	<center tal:condition="here/secrettxt"> <b tal:content="here/secrettxt">We are here !</b> </center>
 </div>
 
 <h3>Fichier</h3>

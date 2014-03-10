@@ -33,7 +33,8 @@ setup(name='iuem.sequestre',
           'collective.js.jqueryui',
           'collective.z3cform.datetimewidget',
           'collective.js.datatables',
-          'plone.app.versioningbehavior'
+          'plone.app.versioningbehavior',
+	  'pycrypto'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
